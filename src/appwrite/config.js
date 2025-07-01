@@ -126,12 +126,24 @@ export class Service{
 
     getFilePreview(fileId){
         // console.log(fileId);
-        
-    return this.bucket.getFilePreview(
-        conf.appwriteBucketId,
-        fileId
-    )
-}
+
+        const filePreview = this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId
+        )
+        console.log("File Preview URL: ", filePreview);
+        return filePreview
+    }
+
+    getFileView(fileId){
+        // Returns the direct view URL for the file
+        const fileView = this.bucket.getFileView(
+            conf.appwriteBucketId,
+            fileId
+        )
+        console.log("File View URL: ", fileView);
+        return fileView;
+    }
 
 }
 
